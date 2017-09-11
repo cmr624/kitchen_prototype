@@ -3,11 +3,11 @@
 =======
 /[Ll]ibrary/
 >>>>>>> c7bc1e976bdf0d7f1a547ca6e1971047f9ff1eab
-/[Tt]emp/
-/[Oo]bj/
-/[Bb]uild/
-/[Bb]uilds/
-/Assets/AssetStoreTools*
+**/[Tt]emp/**
+**/[Oo]bj/**
+**/[Bb]uild/**
+**/[Bb]uilds/**
+**/Assets/AssetStoreTools*
 
 # Visual Studio 2015 cache directory
 /.vs/

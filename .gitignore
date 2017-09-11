@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 **/[Ll]ibrary/**
+=======
+/[Ll]ibrary/
+>>>>>>> c7bc1e976bdf0d7f1a547ca6e1971047f9ff1eab
 /[Tt]emp/
 /[Oo]bj/
 /[Bb]uild/

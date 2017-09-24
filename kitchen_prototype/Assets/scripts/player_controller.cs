@@ -19,18 +19,6 @@ public class player_controller : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-		// Moving GameObjects:
-		// You can use the Transform component always
-		// if it's also a physics object you can use the Rigidbody/Rigidbody2D
-		// If you move a physics object's transform, it will ignore physics interactions during the movement
-		// Make sure you use the rigidbody to move an object if you want it to have physics interactions during the
-		// movement. Make sure not to move it too quickly.
-
-		// Input:
-		// Use Input.GetKey() to get a physical key on your keyboard
-		// Use Input.GetButton() or Input.GetAxix() to use your buttons/axes defined in the InputManager
-		// Remember there's also Input.GetButtonDown() and Input.GetButtonUp()
-
 		if (Input.GetKey("left shift"))
 		{
 			ForceStrength = sprint;
@@ -46,10 +34,12 @@ public class player_controller : MonoBehaviour
 			Debug.Log("up");
 			if (Input.GetKey("d"))
 			{
+				Debug.Log("up/right");
 				rigidbody.velocity = new Vector2(ForceStrength, ForceStrength);
 			}
 			else if (Input.GetKey("a"))
 			{
+				Debug.Log("up/left");
 				rigidbody.velocity = new Vector2(-ForceStrength, ForceStrength);
 			}
 			else
@@ -74,6 +64,7 @@ public class player_controller : MonoBehaviour
 			}
 			else if (Input.GetKey("a"))
 			{
+				Debug.Log("down/left");
 				rigidbody.velocity = new Vector2(-ForceStrength, -ForceStrength);
 			}
 			else
@@ -106,6 +97,7 @@ public class player_controller : MonoBehaviour
 		}
 		else if (Input.GetKeyUp("d"))
 		{
+			Debug.Log("up");
 			rigidbody.velocity = new Vector2(0,0);
 		}
 		

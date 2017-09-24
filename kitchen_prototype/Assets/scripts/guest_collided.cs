@@ -1,15 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class guest_collided : MonoBehaviour
 {
 	public GameObject text_box;
 	public bool triggerSpace;
+	public string text_string;
+	public Text originalText;
 	
 	// Use this for initialization
-	void Start () {
-		
+	void Start ()
+	{
+		originalText = originalText.GetComponent<Text>();
 	}
 	
 	// Update is called once per frame
@@ -31,6 +35,7 @@ public class guest_collided : MonoBehaviour
 		{
 			Debug.Log("COLLIDING");
 			text_box.SetActive(true);
+			originalText.text = text_string;
 		}
 	}
 
@@ -41,6 +46,7 @@ public class guest_collided : MonoBehaviour
 		{
 			Debug.Log("COLLIDING");
 			text_box.SetActive(true);
+			originalText.text = text_string;
 		}
 	}
 

@@ -44,11 +44,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="guest_collided.cs" pinned="false" current-in-tab="true">
+      <file leaf-file-name="guest_collided.cs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/scripts/guest_collided.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="59">
-              <caret line="15" column="37" lean-forward="true" selection-start-line="15" selection-start-column="37" selection-end-line="15" selection-end-column="37" />
+            <state relative-caret-position="375">
+              <caret line="25" column="12" lean-forward="false" selection-start-line="25" selection-start-column="12" selection-end-line="25" selection-end-column="12" />
               <folding>
                 <marker date="1506285782000" expanded="true" signature="6:100" ph="..." />
                 <marker date="1506285782000" expanded="true" signature="145:1038" ph="{...}" />
@@ -62,6 +62,16 @@
                 <marker date="1506285782000" expanded="true" signature="847:947" ph="{...}" />
                 <marker date="1506285782000" expanded="true" signature="1001:1036" ph="{...}" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="chef_collider.cs" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Assets/scripts/chef_collider.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -86,6 +96,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/scripts/player_controller.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/scripts/text_box.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/scripts/chef_collider.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/scripts/guest_collided.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
@@ -123,7 +134,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="SolutionExplorer">
         <subPane>
           <PATH>
@@ -140,6 +150,7 @@
         <option name="show-file-system" value="false" />
         <option name="show-all-items" value="false" />
       </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -194,12 +205,13 @@
       <workItem from="1505663843338" duration="1420000" />
       <workItem from="1505742493087" duration="1419000" />
       <workItem from="1506281019989" duration="2103000" />
-      <workItem from="1506284202881" duration="1240000" />
+      <workItem from="1506284202881" duration="1771000" />
+      <workItem from="1506521341972" duration="12000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10411000" />
+    <option name="totallyTimeSpent" value="10954000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -247,6 +259,77 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/Assets/scripts/player_controller.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="15" column="8" lean-forward="false" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
+          <folding>
+            <marker date="1505743019000" expanded="false" signature="6:78" ph="..." />
+            <marker date="1505743019000" expanded="true" signature="126:2046" ph="{...}" />
+            <marker date="1505743019000" expanded="true" signature="324:333" ph="{...}" />
+            <marker date="1505743019000" expanded="true" signature="388:2044" ph="{...}" />
+            <marker date="1505743019000" expanded="true" signature="425:460" ph="{...}" />
+            <marker date="1505743019000" expanded="true" signature="467:512" ph="{...}" />
+            <marker date="1505743019000" expanded="true" signature="551:921" ph="{...}" />
+            <marker date="1505743019000" expanded="true" signature="601:706" ph="{...}" />
+            <marker date="1505743019000" expanded="true" signature="737:842" ph="{...}" />
+            <marker date="1505743019000" expanded="true" signature="850:916" ph="{...}" />
+            <marker date="1505743019000" expanded="true" signature="953:1003" ph="{...}" />
+            <marker date="1505743019000" expanded="true" signature="1051:1429" ph="{...}" />
+            <marker date="1505743019000" expanded="true" signature="1103:1211" ph="{...}" />
+            <marker date="1505743019000" expanded="true" signature="1242:1350" ph="{...}" />
+            <marker date="1505743019000" expanded="true" signature="1358:1425" ph="{...}" />
+            <marker date="1505743019000" expanded="true" signature="1461:1511" ph="{...}" />
+            <marker date="1505743019000" expanded="true" signature="1559:1649" ph="{...}" />
+            <marker date="1505743019000" expanded="true" signature="1681:1731" ph="{...}" />
+            <marker date="1505743019000" expanded="true" signature="1780:1865" ph="{...}" />
+            <marker date="1505743019000" expanded="true" signature="1897:1967" ph="{...}" />
+            <marker date="1505743019000" expanded="true" signature="1991:2041" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/scripts/text_box.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="9" column="41" lean-forward="false" selection-start-line="9" selection-start-column="41" selection-end-line="9" selection-end-column="41" />
+          <folding>
+            <marker date="1506282427000" expanded="false" signature="6:78" ph="..." />
+            <marker date="1506282427000" expanded="true" signature="118:273" ph="{...}" />
+            <marker date="1506282427000" expanded="true" signature="167:209" ph="{...}" />
+            <marker date="1506282427000" expanded="true" signature="264:271" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/scripts/guest_collided.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" column="12" lean-forward="false" selection-start-line="25" selection-start-column="12" selection-end-line="25" selection-end-column="12" />
+          <folding>
+            <marker date="1506285782000" expanded="true" signature="6:100" ph="..." />
+            <marker date="1506285782000" expanded="true" signature="145:1038" ph="{...}" />
+            <marker date="1506285782000" expanded="true" signature="307:365" ph="{...}" />
+            <marker date="1506285782000" expanded="true" signature="420:531" ph="{...}" />
+            <marker date="1506285782000" expanded="true" signature="456:488" ph="{...}" />
+            <marker date="1506285782000" expanded="true" signature="495:528" ph="{...}" />
+            <marker date="1506285782000" expanded="true" signature="582:743" ph="{...}" />
+            <marker date="1506285782000" expanded="true" signature="640:740" ph="{...}" />
+            <marker date="1506285782000" expanded="true" signature="789:950" ph="{...}" />
+            <marker date="1506285782000" expanded="true" signature="847:947" ph="{...}" />
+            <marker date="1506285782000" expanded="true" signature="1001:1036" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/scripts/chef_collider.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Assets/scripts/player_controller.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
@@ -465,8 +548,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Assets/scripts/guest_collided.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="59">
-          <caret line="15" column="37" lean-forward="true" selection-start-line="15" selection-start-column="37" selection-end-line="15" selection-end-column="37" />
+        <state relative-caret-position="375">
+          <caret line="25" column="12" lean-forward="false" selection-start-line="25" selection-start-column="12" selection-end-line="25" selection-end-column="12" />
           <folding>
             <marker date="1506285782000" expanded="true" signature="6:100" ph="..." />
             <marker date="1506285782000" expanded="true" signature="145:1038" ph="{...}" />

@@ -11,9 +11,10 @@ W - Move up
 A - Move left
 S - Move down
 D - Move right
+SHIFT + MOVE - Sprint!
 SPACE - When close to a guest press <SPACE> to hear their order
+E - "Grab" Item (while near CHEF) / "Give" Item (while near GUEST)
+I - Check current inventory.
 
-~NOT IMPLEMENTED YET~
-I - brings up notepad
-E - pick up / hold food items
+
 

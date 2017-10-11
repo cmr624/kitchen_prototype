@@ -103,7 +103,7 @@ public class guest_collided : MonoBehaviour
 				if (item.Equals(scriptyGuest.item))
 				{
 					text_box.SetActive(true);
-					originalText.text = thankYouText + "Earned: $" + money;;
+					originalText.text = thankYouText + " Earned: $" + money;;
 					scriptyGuest.isHolding = false;
 					scriptyGuest.item = "";
 					scriptyGuest.score += money;
@@ -157,7 +157,7 @@ public class guest_collided : MonoBehaviour
 				if (item.Equals(scriptyGuest.item))
 				{
 					text_box.SetActive(true);
-					originalText.text = thankYouText + "Earned: $" + money;
+					originalText.text = thankYouText + " Earned: $" + money;
 					scriptyGuest.isHolding = false;
 					scriptyGuest.item = "";
 					scriptyGuest.score += money;

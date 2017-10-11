@@ -31,15 +31,15 @@ public class player_controller : MonoBehaviour
 		// move up
 		if (Input.GetKey("w"))
 		{
-			Debug.Log("up");
+			//Debug.Log("up");
 			if (Input.GetKey("d"))
 			{
-				Debug.Log("up/right");
+				//Debug.Log("up/right");
 				rigidbody.velocity = new Vector2(ForceStrength, ForceStrength);
 			}
 			else if (Input.GetKey("a"))
 			{
-				Debug.Log("up/left");
+				//Debug.Log("up/left");
 				rigidbody.velocity = new Vector2(-ForceStrength, ForceStrength);
 			}
 			else
@@ -56,15 +56,15 @@ public class player_controller : MonoBehaviour
 		// move down
 		else if (Input.GetKey("s"))
 		{
-			Debug.Log("down");
+			//Debug.Log("down");
 			if (Input.GetKey("d"))
 			{
-				Debug.Log("down right");
+				//Debug.Log("down right");
 				rigidbody.velocity = new Vector2(ForceStrength, -ForceStrength);
 			}
 			else if (Input.GetKey("a"))
 			{
-				Debug.Log("down/left");
+				//Debug.Log("down/left");
 				rigidbody.velocity = new Vector2(-ForceStrength, -ForceStrength);
 			}
 			else
@@ -80,7 +80,7 @@ public class player_controller : MonoBehaviour
 		// move left
 		else if (Input.GetKey("a"))
 		{
-			Debug.Log("left");
+			//Debug.Log("left");
 			rigidbody.velocity = new Vector2(-ForceStrength, 0);
 			
 		}
@@ -92,12 +92,12 @@ public class player_controller : MonoBehaviour
 		 //move right
 		else if (Input.GetKey("d"))
 		{
-			Debug.Log("right");
+			//Debug.Log("right");
 			rigidbody.velocity = new Vector2(ForceStrength,0);
 		}
 		else if (Input.GetKeyUp("d"))
 		{
-			Debug.Log("up");
+			//Debug.Log("up");
 			rigidbody.velocity = new Vector2(0,0);
 		}
 		

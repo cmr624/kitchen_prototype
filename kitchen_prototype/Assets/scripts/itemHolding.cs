@@ -16,7 +16,11 @@ public class itemHolding : MonoBehaviour
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		
+	void Update () 
+	{
+		if (Input.GetKeyDown("l"))
+		{
+			score += 100;
+		}
 	}
 }

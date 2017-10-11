@@ -7,7 +7,10 @@ public class guest_collided : MonoBehaviour
 {
 	public GameObject text_box;
 	public bool triggerSpace;
-	public string text_string;
+	public string text_string_0;
+	public string text_string_1;
+	public string text_string_2;
+	public string text_string_3;
 	public Text originalText;
 	public bool grab;
 	
@@ -17,12 +20,16 @@ public class guest_collided : MonoBehaviour
 	public string thankYouText;
 	public string hateYouText;
 	public int money;
+	public int reduceBy;
+
+	private int count;
 	
 	// Use this for initialization
 	void Start ()
 	{
 		originalText = originalText.GetComponent<Text>();
 		scriptyGuest = holding.GetComponent<itemHolding>();
+		count = 0;
 	}
 	
 	// Update is called once per frame
@@ -65,7 +72,29 @@ public class guest_collided : MonoBehaviour
 		{
 			Debug.Log("COLLIDING");
 			text_box.SetActive(true);
-			originalText.text = text_string;
+			if (count == 0)
+			{
+				originalText.text = text_string_0;
+				count += 1;
+			}
+			else if (count == 1)
+			{
+				originalText.text = text_string_1;
+				count += 1;
+				money = money - reduceBy;
+			}
+			else if (count == 2)
+			{
+				originalText.text = text_string_2;
+				count += 1;
+				money = money - reduceBy;
+			}
+			else if (count > 2)
+			{
+				originalText.text = text_string_3;
+				count += 1;
+				money = money - reduceBy;
+			}
 		}
 		if (coll.gameObject.tag == "Player" && grab)
 		{
@@ -74,7 +103,7 @@ public class guest_collided : MonoBehaviour
 				if (item.Equals(scriptyGuest.item))
 				{
 					text_box.SetActive(true);
-					originalText.text = thankYouText;
+					originalText.text = thankYouText + "Earned: $" + money;;
 					scriptyGuest.isHolding = false;
 					scriptyGuest.item = "";
 					scriptyGuest.score += money;
@@ -83,6 +112,7 @@ public class guest_collided : MonoBehaviour
 				{
 					text_box.SetActive(true);
 					originalText.text = hateYouText;
+					money = money - reduceBy;
 				}
 				
 			}
@@ -96,7 +126,29 @@ public class guest_collided : MonoBehaviour
 		{
 			Debug.Log("COLLIDING");
 			text_box.SetActive(true);
-			originalText.text = text_string;
+			if (count == 0)
+			{
+				originalText.text = text_string_0;
+				count += 1;
+			}
+			else if (count == 1)
+			{
+				originalText.text = text_string_1;
+				count += 1;
+				money = money - reduceBy;
+			}
+			else if (count == 2)
+			{
+				originalText.text = text_string_2;
+				count += 1;
+				money = money - reduceBy;
+			}
+			else if (count > 2)
+			{
+				originalText.text = text_string_3;
+				count += 1;
+				money = money - reduceBy;
+			}
 		}
 		if (coll.gameObject.tag == "Player" && grab)
 		{
@@ -105,7 +157,7 @@ public class guest_collided : MonoBehaviour
 				if (item.Equals(scriptyGuest.item))
 				{
 					text_box.SetActive(true);
-					originalText.text = thankYouText;
+					originalText.text = thankYouText + "Earned: $" + money;
 					scriptyGuest.isHolding = false;
 					scriptyGuest.item = "";
 					scriptyGuest.score += money;
@@ -114,6 +166,7 @@ public class guest_collided : MonoBehaviour
 				{
 					text_box.SetActive(true);
 					originalText.text = hateYouText;
+					money = money - reduceBy;
 				}
 				
 			}

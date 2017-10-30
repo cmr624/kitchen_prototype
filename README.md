@@ -17,4 +17,5 @@ E - "Grab" Item (while near CHEF) / "Give" Item (while near GUEST)
 I - Check current inventory.
 
 
-
+Chef Sprite
+​http://pixelartmaker.com/art/a1a1a5b5543d851​

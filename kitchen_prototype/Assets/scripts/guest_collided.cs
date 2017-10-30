@@ -86,9 +86,9 @@ public class guest_collided : MonoBehaviour
 	private void OnCollisionStay2D(Collision2D coll)
 	{
 		alert.SetActive(true);
-		if (coll.gameObject.tag == "Player" && triggerSpace)
+		Debug.Log("COLLIDING");
+		if (triggerSpace)
 		{
-			Debug.Log("COLLIDING");
 			text_box.SetActive(true);
 			if (count == 0)
 			{
@@ -126,7 +126,7 @@ public class guest_collided : MonoBehaviour
 				money = money - reduceBy;
 			}
 		}
-		if (coll.gameObject.tag == "Player" && grab)
+		if (grab)
 		{
 			if (scriptyGuest.isHolding)
 			{
@@ -157,6 +157,7 @@ public class guest_collided : MonoBehaviour
 
 	//on collision enter, change it so that the color of the player indicates you can interact with them. 
 	//Then, ON STAY, do all the regular shit... test if they're holding, etc etc.
+	/*
 	void OnCollisionEnter2D(Collision2D coll)
 	{
 		alert.SetActive(true);
@@ -230,14 +231,14 @@ public class guest_collided : MonoBehaviour
 				
 			}
 		}
-	}
+	}*/
 
 	private void OnCollisionExit2D(Collision2D coll)
 	{
+		alert.SetActive(false);
 		if (!scriptyGuest.isHolding)
 		{
 			text_box.SetActive(false);
-			alert.SetActive(false);
 		}
 	}
 }

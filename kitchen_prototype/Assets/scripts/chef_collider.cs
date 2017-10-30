@@ -98,6 +98,7 @@ public class chef_collider : MonoBehaviour
 			}
 		}
 	}
+	/*
 	void OnCollisionEnter2D(Collision2D coll)
 	{
 		alert.SetActive(true);
@@ -136,14 +137,14 @@ public class chef_collider : MonoBehaviour
 				scripty.item = item;
 			}
 		}
-	}
+	}*/
 
 	private void OnCollisionExit2D(Collision2D coll)
 	{
+		alert.SetActive(false);
 		if (!scripty.isHolding)
 		{
 			text_box.SetActive(false);
-			alert.SetActive(false);
 		}
 	}
 }

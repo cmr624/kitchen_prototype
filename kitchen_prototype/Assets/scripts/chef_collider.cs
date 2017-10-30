@@ -14,12 +14,18 @@ public class chef_collider : MonoBehaviour
 	public GameObject holding;
 	public string item;
 	private itemHolding scripty;
+	public GameObject alert;
+	
+	public AudioClip talk;
+	public AudioClip alertSound;
+	public AudioSource interactionAudioSource;
 	
 	// Use this for initialization
 	void Start ()
 	{
 		originalText = originalText.GetComponent<Text>();
 		scripty = holding.GetComponent<itemHolding>();
+		//alert.SetActive(fa);
 	}
 	
 	// Update is called once per frame
@@ -59,8 +65,12 @@ public class chef_collider : MonoBehaviour
 	}
 	private void OnCollisionStay2D(Collision2D coll)
 	{
+		alert.SetActive(true);
 		if (coll.gameObject.tag == "Player" && triggerSpace)
 		{
+			interactionAudioSource.Stop();
+			interactionAudioSource.clip = talk;
+			interactionAudioSource.Play();
 			Debug.Log("COLLIDING");
 			text_box.SetActive(true);
 			originalText.text = text_string;
@@ -69,12 +79,18 @@ public class chef_collider : MonoBehaviour
 		{
 			if (scripty.isHolding)
 			{
+				interactionAudioSource.Stop();
+				interactionAudioSource.clip = talk;
+				interactionAudioSource.Play();
 				text_box.SetActive(true);
 				originalText.text = "ALREADY HOLDING " + scripty.item;
 				
 			}
 			else
 			{
+				interactionAudioSource.Stop();
+				interactionAudioSource.clip = talk;
+				interactionAudioSource.Play();
 				text_box.SetActive(true);
 				originalText.text = "HOLDING " + item;
 				scripty.isHolding = true;
@@ -84,22 +100,36 @@ public class chef_collider : MonoBehaviour
 	}
 	void OnCollisionEnter2D(Collision2D coll)
 	{
+		alert.SetActive(true);
+		interactionAudioSource.Stop();
+		interactionAudioSource.clip = alertSound;
+		interactionAudioSource.Play();
 		if (coll.gameObject.tag == "Player" && triggerSpace)
 		{
+			interactionAudioSource.Stop();
+			interactionAudioSource.clip = talk;
+			interactionAudioSource.Play();
 			Debug.Log("COLLIDING");
 			text_box.SetActive(true);
 			originalText.text = text_string;
+			
 		}
 		if (coll.gameObject.tag == "Player" && grab)
 		{
 			if (scripty.isHolding)
 			{
+				interactionAudioSource.Stop();
+				interactionAudioSource.clip = talk;
+				interactionAudioSource.Play();
 				text_box.SetActive(true);
 				originalText.text = "ALREADY HOLDING " + scripty.item;
 				
 			}
 			else
 			{
+				interactionAudioSource.Stop();
+				interactionAudioSource.clip = talk;
+				interactionAudioSource.Play();
 				text_box.SetActive(true);
 				originalText.text = "HOLDING " + item;
 				scripty.isHolding = true;
@@ -113,6 +143,7 @@ public class chef_collider : MonoBehaviour
 		if (!scripty.isHolding)
 		{
 			text_box.SetActive(false);
+			alert.SetActive(false);
 		}
 	}
 }

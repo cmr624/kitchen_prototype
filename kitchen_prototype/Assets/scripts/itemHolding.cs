@@ -18,6 +18,7 @@ public class itemHolding : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
+		//DEVTOOL. COMMENT OUT IN FINAL BUILD. OR DON'T.
 		if (Input.GetKeyDown("l"))
 		{
 			score += 100;

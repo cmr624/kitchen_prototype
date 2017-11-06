@@ -52,28 +52,12 @@ public class guest_collided : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-		if (Input.GetKeyDown("space"))
-		{
-			triggerSpace = true;
-		}
-		else
-		{
-			triggerSpace = false;
-		}
-		if (Input.GetKeyDown("e"))
-		{
-			grab = true;
-		}
-		else
-		{
-			grab = false;
-		}
 		if (Input.GetKeyDown("i"))
 		{
 			if (scriptyGuest.isHolding)
 			{
 				text_box.SetActive(true);
-				originalText.text = "HOLDING " + scriptyGuest.item+ " MONEY: $" + scriptyGuest.score;
+				originalText.text = "Holding " + scriptyGuest.item+ " Balance: $" + scriptyGuest.score;
 			}
 			else
 			{
@@ -83,11 +67,28 @@ public class guest_collided : MonoBehaviour
 		}
 	}
 
-	private void OnCollisionStay2D(Collision2D coll)
+	// void OnTriggerStay2D(Collider2D other)
+	private void OnTriggerStay2D(Collider2D coll)
 	{
 		alert.SetActive(true);
+		if (Input.GetKeyDown("e"))
+		{
+			grab = true;
+		}
+		else
+		{
+			grab = false;
+		}
+		if (Input.GetKeyDown("space"))
+		{
+			triggerSpace = true;
+		}
+		else
+		{
+			triggerSpace = false;
+		}
 		Debug.Log("COLLIDING");
-		if (triggerSpace)
+		if (coll.gameObject.tag == "Player" && triggerSpace)
 		{
 			text_box.SetActive(true);
 			if (count == 0)
@@ -126,7 +127,7 @@ public class guest_collided : MonoBehaviour
 				money = money - reduceBy;
 			}
 		}
-		if (grab)
+		if (coll.gameObject.tag == "Player" && grab)
 		{
 			if (scriptyGuest.isHolding)
 			{
@@ -157,9 +158,25 @@ public class guest_collided : MonoBehaviour
 
 	//on collision enter, change it so that the color of the player indicates you can interact with them. 
 	//Then, ON STAY, do all the regular shit... test if they're holding, etc etc.
-	/*
-	void OnCollisionEnter2D(Collision2D coll)
+
+	void OnTriggerEnter2D(Collider2D coll)
 	{
+		if (Input.GetKeyDown("e"))
+		{
+			grab = true;
+		}
+		else
+		{
+			grab = false;
+		}
+		if (Input.GetKeyDown("space"))
+		{
+			triggerSpace = true;
+		}
+		else
+		{
+			triggerSpace = false;
+		}
 		alert.SetActive(true);
 		interactionAudioSource.Stop();
 		interactionAudioSource.clip = alertSound;
@@ -231,9 +248,9 @@ public class guest_collided : MonoBehaviour
 				
 			}
 		}
-	}*/
+	}
 
-	private void OnCollisionExit2D(Collision2D coll)
+	private void OnTriggerExit2D(Collider2D coll)
 	{
 		alert.SetActive(false);
 		if (!scriptyGuest.isHolding)

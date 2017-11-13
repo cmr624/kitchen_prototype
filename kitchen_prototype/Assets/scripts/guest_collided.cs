@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Reflection.Emit;
 using UnityEngine.UI;
 using UnityEngine;
 
@@ -30,8 +31,6 @@ public class guest_collided : MonoBehaviour
 	public AudioClip talk;
 	public AudioClip alertSound;
 	public AudioSource interactionAudioSource;
-	
-	
 	
 	/*
 	fail

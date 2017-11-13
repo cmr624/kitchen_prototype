@@ -56,7 +56,11 @@ public class player_controller : MonoBehaviour
 		if (Input.GetKey("w"))
 		{
 			isMoving = true;
-			changeState(WALK);
+			if (currentState != HOLDING)
+			{
+				changeState(WALK);
+				Debug.Log(currentState);
+			}
 			//Debug.Log("up");
 			if (Input.GetKey("d"))
 			{
@@ -78,7 +82,11 @@ public class player_controller : MonoBehaviour
 		{
 			isMoving = false;
 			//EffectSource.Stop();
-			changeState(IDLE);
+			if (currentState != HOLDING)
+			{
+				changeState(IDLE);
+			}
+			Debug.Log(currentState);
 			rigidbody.velocity = new Vector2(0,0);
 		}
 		
@@ -86,7 +94,11 @@ public class player_controller : MonoBehaviour
 		else if (Input.GetKey("s"))
 		{
 			isMoving = true;
-			changeState(WALK);
+			if (currentState != HOLDING)
+			{
+				changeState(WALK);
+				Debug.Log(currentState);
+			}
 			//Debug.Log("down");
 			if (Input.GetKey("d"))
 			{
@@ -107,7 +119,11 @@ public class player_controller : MonoBehaviour
 		{
 			isMoving = false;
 			//EffectSource.Stop();
-			changeState(IDLE);
+			if (currentState != HOLDING)
+			{
+				changeState(IDLE);
+			}
+			Debug.Log(currentState);
 			rigidbody.velocity = new Vector2(0,0);
 		}
 		
@@ -115,7 +131,10 @@ public class player_controller : MonoBehaviour
 		else if (Input.GetKey("a"))
 		{
 			isMoving = true;
-			changeState(WALK);
+			if (currentState != HOLDING)
+			{
+				changeState(WALK);
+			}
 			//Debug.Log("left");
 			rigidbody.velocity = new Vector2(-ForceStrength, 0);
 			
@@ -123,9 +142,14 @@ public class player_controller : MonoBehaviour
 		else if (Input.GetKeyUp("a"))
 		{
 			//EffectSource.Stop();
-			changeState(IDLE);
+			if (currentState != HOLDING)
+			{
+				changeState(IDLE);
+			}
+			Debug.Log(currentState);
 			rigidbody.velocity = new Vector2(0,0);
 		}
+		/*
 		//FOR DEMO PURPOSES
 		else if (Input.GetKey("p"))
 		{
@@ -134,20 +158,27 @@ public class player_controller : MonoBehaviour
 		else if (Input.GetKeyUp("p"))
 		{
 			changeState(IDLE);
-		}
+		}*/
 		 //move right
 		else if (Input.GetKey("d"))
 		{
 			isMoving = true;
-			changeState(WALK);
-			//Debug.Log("right");
+			if (currentState != HOLDING)
+			{
+				changeState(WALK);
+			}
+			Debug.Log(currentState);
 			rigidbody.velocity = new Vector2(ForceStrength,0);
 		}
 		else if (Input.GetKeyUp("d"))
 		{
 			isMoving = false;
 			//EffectSource.Stop();
-			changeState(IDLE);
+			if (currentState != HOLDING)
+			{
+				changeState(IDLE);
+			}
+			Debug.Log(currentState);
 			//Debug.Log("up");
 			rigidbody.velocity = new Vector2(0,0);
 		}
@@ -156,7 +187,11 @@ public class player_controller : MonoBehaviour
 		{
 			isMoving = false;
 			//EffectSource.Stop();
-			changeState(IDLE);
+			if (currentState != HOLDING)
+			{
+				changeState(IDLE);
+			}
+			Debug.Log(currentState);
 			rigidbody.velocity = new Vector2(0,0);
 		}
 	}

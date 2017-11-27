@@ -12,6 +12,7 @@ public class guest_collided : MonoBehaviour
 	public string text_string_1;
 	public string text_string_2;
 	public string text_string_3;
+	public string done_string;
 	public Text originalText;
 	public bool grab;
 	
@@ -23,6 +24,8 @@ public class guest_collided : MonoBehaviour
 	public int money;
 	public int reduceBy;
 
+	public bool done;
+	
 	public GameObject alert;
 	private int count;
 
@@ -45,6 +48,7 @@ public class guest_collided : MonoBehaviour
 		originalText = originalText.GetComponent<Text>();
 		scriptyGuest = holding.GetComponent<itemHolding>();
 		count = 0;
+		done = false;
 		//alert.SetActive(false);
 	}
 	
@@ -90,45 +94,73 @@ public class guest_collided : MonoBehaviour
 		if (coll.gameObject.tag == "Player" && triggerSpace)
 		{
 			text_box.SetActive(true);
-			if (count == 0)
+			if (done)
 			{
+
 				interactionAudioSource.Stop();
 				interactionAudioSource.clip = talk;
 				interactionAudioSource.Play();
-				originalText.text = text_string_0;
-				count += 1;
+				originalText.text = done_string;
+				done = true;
 			}
-			else if (count == 1)
+			else
 			{
-				interactionAudioSource.Stop();
-				interactionAudioSource.clip = talk;
-				interactionAudioSource.Play();
-				originalText.text = text_string_1;
-				count += 1;
-				money = money - reduceBy;
-			}
-			else if (count == 2)
-			{
-				interactionAudioSource.Stop();
-				interactionAudioSource.clip = talk;
-				interactionAudioSource.Play();
-				originalText.text = text_string_2;
-				count += 1;
-				money = money - reduceBy;
-			}
-			else if (count > 2)
-			{
-				interactionAudioSource.Stop();
-				interactionAudioSource.clip = talk;
-				interactionAudioSource.Play();
-				originalText.text = text_string_3;
-				count += 1;
-				money = money - reduceBy;
+				if (count == 0)
+				{
+					interactionAudioSource.Stop();
+					interactionAudioSource.clip = talk;
+					interactionAudioSource.Play();
+					originalText.text = text_string_0;
+					count += 1;
+				}
+				else if (count == 1)
+				{
+					interactionAudioSource.Stop();
+					interactionAudioSource.clip = talk;
+					interactionAudioSource.Play();
+					originalText.text = text_string_1;
+					count += 1;
+					money = money - reduceBy;
+				}
+				else if (count == 2)
+				{
+					interactionAudioSource.Stop();
+					interactionAudioSource.clip = talk;
+					interactionAudioSource.Play();
+					originalText.text = text_string_2;
+					count += 1;
+					money = money - reduceBy;
+				}
+				else if (count == 3)
+				{
+					interactionAudioSource.Stop();
+					interactionAudioSource.clip = talk;
+					interactionAudioSource.Play();
+					originalText.text = text_string_3;
+					count += 1;
+					money = money - reduceBy;
+				}
+				else
+				{
+					interactionAudioSource.Stop();
+					interactionAudioSource.clip = talk;
+					interactionAudioSource.Play();
+					originalText.text = done_string;
+					done = true;
+				}
 			}
 		}
 		if (coll.gameObject.tag == "Player" && grab)
 		{
-			if (scriptyGuest.isHolding)
+			if (done)
+			{
+				interactionAudioSource.Stop();
+				interactionAudioSource.clip = talk;
+				interactionAudioSource.Play();
+				originalText.text = done_string;
+				done = true;
+			}
+			else if (scriptyGuest.isHolding)
 			{
 				if (item.Equals(scriptyGuest.item))
 				{
@@ -140,6 +172,7 @@ public class guest_collided : MonoBehaviour
 					scriptyGuest.isHolding = false;
 					scriptyGuest.item = "";
 					scriptyGuest.score += money;
+					done = true;
 				}
 				else
 				{
@@ -182,47 +215,75 @@ public class guest_collided : MonoBehaviour
 		interactionAudioSource.Play();
 		if (coll.gameObject.tag == "Player" && triggerSpace)
 		{
-			Debug.Log("COLLIDING");
 			text_box.SetActive(true);
-			if (count == 0)
+			if (done)
 			{
+				
 				interactionAudioSource.Stop();
 				interactionAudioSource.clip = talk;
 				interactionAudioSource.Play();
-				originalText.text = text_string_0;
-				count += 1;
+				originalText.text = done_string;
+				done = true;
 			}
-			else if (count == 1)
+			else
 			{
-				interactionAudioSource.Stop();
-				interactionAudioSource.clip = talk;
-				interactionAudioSource.Play();
-				originalText.text = text_string_1;
-				count += 1;
-				money = money - reduceBy;
+				if (count == 0)
+				{
+					interactionAudioSource.Stop();
+					interactionAudioSource.clip = talk;
+					interactionAudioSource.Play();
+					originalText.text = text_string_0;
+					count += 1;
+				}
+				else if (count == 1)
+				{
+					interactionAudioSource.Stop();
+					interactionAudioSource.clip = talk;
+					interactionAudioSource.Play();
+					originalText.text = text_string_1;
+					count += 1;
+					money = money - reduceBy;
+				}
+				else if (count == 2)
+				{
+					interactionAudioSource.Stop();
+					interactionAudioSource.clip = talk;
+					interactionAudioSource.Play();
+					originalText.text = text_string_2;
+					count += 1;
+					money = money - reduceBy;
+				}
+				else if (count == 3)
+				{
+					interactionAudioSource.Stop();
+					interactionAudioSource.clip = talk;
+					interactionAudioSource.Play();
+					originalText.text = text_string_3;
+					count += 1;
+					money = money - reduceBy;
+				}
+				else
+				{
+					interactionAudioSource.Stop();
+					interactionAudioSource.clip = talk;
+					interactionAudioSource.Play();
+					originalText.text = done_string;
+					done = true;
+				}
 			}
-			else if (count == 2)
-			{
-				interactionAudioSource.Stop();
-				interactionAudioSource.clip = talk;
-				interactionAudioSource.Play();
-				originalText.text = text_string_2;
-				count += 1;
-				money = money - reduceBy;
-			}
-			else if (count > 2)
-			{
-				interactionAudioSource.Stop();
-				interactionAudioSource.clip = talk;
-				interactionAudioSource.Play();
-				originalText.text = text_string_3;
-				count += 1;
-				money = money - reduceBy;
-			}
+			Debug.Log("COLLIDING");
 		}
 		if (coll.gameObject.tag == "Player" && grab)
 		{
-			if (scriptyGuest.isHolding)
+			if (done)
+			{
+				interactionAudioSource.Stop();
+				interactionAudioSource.clip = talk;
+				interactionAudioSource.Play();
+				originalText.text = done_string;
+				done = true;
+			}
+			else if (scriptyGuest.isHolding)
 			{
 				if (item.Equals(scriptyGuest.item))
 				{
@@ -234,6 +295,7 @@ public class guest_collided : MonoBehaviour
 					scriptyGuest.isHolding = false;
 					scriptyGuest.item = "";
 					scriptyGuest.score += money;
+					done = true;
 				}
 				else
 				{

@@ -22,6 +22,8 @@ public class player_controller : MonoBehaviour
 	//audio
 	public AudioClip Effect;
 	public AudioSource EffectSource;
+
+	private GameObject[] guests;
 	
 	// Use this for initialization
 	void Start ()
@@ -31,11 +33,31 @@ public class player_controller : MonoBehaviour
 		EffectSource.Play();
 		alert.SetActive(false);
 		isMoving = false;
+		if (guests == null)
+		{
+			guests = GameObject.FindGameObjectsWithTag("guest");
+		}
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
+		bool doIt = false;
+		foreach (GameObject guest in guests)
+		{
+			if (guest.GetComponent<guest_collided>().done)
+			{
+				doIt = true;
+			}
+			else
+			{
+				doIt = false;
+			}
+		}
+		if (doIt)
+		{
+			SceneManager.LoadScene(0);
+		}
 		if (Input.GetKey("escape"))
 		{
 			SceneManager.LoadScene(0);

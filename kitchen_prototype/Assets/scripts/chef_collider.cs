@@ -79,7 +79,8 @@ public class chef_collider : MonoBehaviour
 			originalText.text = text_string;
 		}
 		if (coll.gameObject.tag == "Player" && grab)
-		{
+		{	
+			/*
 			if (scripty.isHolding)
 			{
 				interactionAudioSource.Stop();
@@ -88,9 +89,9 @@ public class chef_collider : MonoBehaviour
 				text_box.SetActive(true);
 				originalText.text = "Already Holding " + scripty.item;
 
-			}
-			else
-			{
+			}*/
+			//else
+			//{
 				interactionAudioSource.Stop();
 				interactionAudioSource.clip = talk;
 				interactionAudioSource.Play();
@@ -98,7 +99,7 @@ public class chef_collider : MonoBehaviour
 				originalText.text = "Holding " + item;
 				scripty.isHolding = true;
 				scripty.item = item;
-			}
+			//}
 		}
 	}
 
@@ -137,6 +138,7 @@ public class chef_collider : MonoBehaviour
 		}
 		if (coll.gameObject.tag == "Player" && grab)
 		{
+			/*
 			if (scripty.isHolding)
 			{
 				interactionAudioSource.Stop();
@@ -147,7 +149,7 @@ public class chef_collider : MonoBehaviour
 				
 			}
 			else
-			{
+			{*/
 				interactionAudioSource.Stop();
 				interactionAudioSource.clip = talk;
 				interactionAudioSource.Play();
@@ -155,7 +157,7 @@ public class chef_collider : MonoBehaviour
 				originalText.text = "Holding " + item;
 				scripty.isHolding = true;
 				scripty.item = item;
-			}
+			//}
 		}
 	}
 
@@ -163,9 +165,6 @@ public class chef_collider : MonoBehaviour
 	{
 		triggered = false;
 		alert.SetActive(false);
-		if (!scripty.isHolding)
-		{
-			text_box.SetActive(false);
-		}
+		text_box.SetActive(false);
 	}
 }

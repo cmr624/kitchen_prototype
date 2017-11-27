@@ -314,9 +314,6 @@ public class guest_collided : MonoBehaviour
 	private void OnTriggerExit2D(Collider2D coll)
 	{
 		alert.SetActive(false);
-		if (!scriptyGuest.isHolding)
-		{
-			text_box.SetActive(false);
-		}
+		text_box.SetActive(false);
 	}
 }

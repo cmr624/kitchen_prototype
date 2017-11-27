@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class player_controller : MonoBehaviour
 {
@@ -35,6 +36,10 @@ public class player_controller : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
+		if (Input.GetKey("escape"))
+		{
+			SceneManager.LoadScene(0);
+		}
 		if (isMoving)
 		{
 			EffectSource.UnPause();

@@ -45,6 +45,7 @@ public class player_controller : MonoBehaviour
 		bool doIt = false;
 		foreach (GameObject guest in guests)
 		{
+			Debug.Log(guests);
 			if (guest.GetComponent<guest_collided>().done)
 			{
 				doIt = true;
@@ -52,10 +53,12 @@ public class player_controller : MonoBehaviour
 			else
 			{
 				doIt = false;
+				break;
 			}
 		}
 		if (doIt)
 		{
+			Debug.Log("FFFFF");
 			SceneManager.LoadScene(0);
 		}
 		if (Input.GetKey("escape"))

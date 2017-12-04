@@ -16,6 +16,7 @@ public class player_controller : MonoBehaviour
 	private const int HOLDING = 2;
 	private int currentState = IDLE;
 	private itemHolding scripty;
+	public GameObject holding;
 	public GameObject alert;
 	private bool isMoving;
 	
@@ -28,6 +29,7 @@ public class player_controller : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
+		scripty = holding.GetComponent<itemHolding>();
 		animator = this.GetComponent<Animator>();
 		EffectSource.clip = Effect;
 		EffectSource.Play();
@@ -58,7 +60,16 @@ public class player_controller : MonoBehaviour
 		}
 		if (doIt)
 		{
-			Debug.Log("FFFFF");
+			PlayerPrefs.SetInt("money", scripty.score);
+			PlayerPrefs.SetInt("totalMoneyPossible", scripty.totalMoneyPossible);
+			PlayerPrefs.SetInt("played", 1);
+			SceneManager.LoadScene(0);
+		}
+		if (Input.GetKey("t"))
+		{
+			PlayerPrefs.SetInt("money", 60);
+			PlayerPrefs.SetInt("totalMoneyPossible", 90);
+			PlayerPrefs.SetInt("played", 1);
 			SceneManager.LoadScene(0);
 		}
 		if (Input.GetKey("escape"))
@@ -83,7 +94,7 @@ public class player_controller : MonoBehaviour
 		}
 
 		// move up
-		if (Input.GetKey("w"))
+		if (Input.GetKey("w") || Input.GetKey("up"))
 		{
 			isMoving = true;
 			if (currentState != HOLDING)
@@ -92,12 +103,12 @@ public class player_controller : MonoBehaviour
 				Debug.Log(currentState);
 			}
 			//Debug.Log("up");
-			if (Input.GetKey("d"))
+			if (Input.GetKey("d") || Input.GetKey("right"))
 			{
 				//Debug.Log("up/right");
 				rigidbody.velocity = new Vector2(ForceStrength, ForceStrength);
 			}
-			else if (Input.GetKey("a"))
+			else if (Input.GetKey("a")|| Input.GetKey("left"))
 			{
 				//Debug.Log("up/left");
 				rigidbody.velocity = new Vector2(-ForceStrength, ForceStrength);
@@ -108,7 +119,7 @@ public class player_controller : MonoBehaviour
 			}
 
 		}
-		else if (Input.GetKeyUp("w"))
+		else if (Input.GetKeyUp("w") || Input.GetKeyUp("up"))
 		{
 			isMoving = false;
 			//EffectSource.Stop();
@@ -121,7 +132,7 @@ public class player_controller : MonoBehaviour
 		}
 		
 		// move down
-		else if (Input.GetKey("s"))
+		else if (Input.GetKey("s") || Input.GetKey("down"))
 		{
 			isMoving = true;
 			if (currentState != HOLDING)
@@ -130,12 +141,12 @@ public class player_controller : MonoBehaviour
 				Debug.Log(currentState);
 			}
 			//Debug.Log("down");
-			if (Input.GetKey("d"))
+			if (Input.GetKey("d") || Input.GetKey("right"))
 			{
 				//Debug.Log("down right");
 				rigidbody.velocity = new Vector2(ForceStrength, -ForceStrength);
 			}
-			else if (Input.GetKey("a"))
+			else if (Input.GetKey("a") || Input.GetKey("left"))
 			{
 				//Debug.Log("down/left");
 				rigidbody.velocity = new Vector2(-ForceStrength, -ForceStrength);
@@ -145,7 +156,7 @@ public class player_controller : MonoBehaviour
 				rigidbody.velocity = new Vector2(0, -ForceStrength);
 			}
 		}
-		else if (Input.GetKeyUp("s"))
+		else if (Input.GetKeyUp("s") || Input.GetKeyUp("down"))
 		{
 			isMoving = false;
 			//EffectSource.Stop();
@@ -158,7 +169,7 @@ public class player_controller : MonoBehaviour
 		}
 		
 		// move left
-		else if (Input.GetKey("a"))
+		else if (Input.GetKey("a") || Input.GetKey("left"))
 		{
 			isMoving = true;
 			if (currentState != HOLDING)
@@ -169,7 +180,7 @@ public class player_controller : MonoBehaviour
 			rigidbody.velocity = new Vector2(-ForceStrength, 0);
 			
 		}
-		else if (Input.GetKeyUp("a"))
+		else if (Input.GetKeyUp("a") || Input.GetKey("left"))
 		{
 			//EffectSource.Stop();
 			if (currentState != HOLDING)
@@ -190,7 +201,7 @@ public class player_controller : MonoBehaviour
 			changeState(IDLE);
 		}*/
 		 //move right
-		else if (Input.GetKey("d"))
+		else if (Input.GetKey("d") || Input.GetKey("down"))
 		{
 			isMoving = true;
 			if (currentState != HOLDING)
@@ -200,7 +211,7 @@ public class player_controller : MonoBehaviour
 			Debug.Log(currentState);
 			rigidbody.velocity = new Vector2(ForceStrength,0);
 		}
-		else if (Input.GetKeyUp("d"))
+		else if (Input.GetKeyUp("d") || Input.GetKeyUp("right"))
 		{
 			isMoving = false;
 			//EffectSource.Stop();

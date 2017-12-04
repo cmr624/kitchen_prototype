@@ -45,40 +45,6 @@ public class forCamera : MonoBehaviour
 				SoundEffectSource.Play();
 				mainCamera.transform.position = kitchen;
 			}
-			else if (name.Equals("n_kitchen"))
-			{
-				Debug.Log(name);
-				mainCamera.transform.position = n_kitchen;
-			}
-			else if (name.Equals("s_kitchen"))
-			{
-				Debug.Log(name);
-				mainCamera.transform.position = s_kitchen;
-			}
-			else if (name.Equals("n_dining_room"))
-			{
-				SoundEffectSource.Stop();
-				SoundEffectSource.clip = diningRoomSoundEffect;
-				SoundEffectSource.Play();
-				Debug.Log(name);
-				mainCamera.transform.position = n_diningRoom;
-			}
-			else if (name.Equals("s_dining_room"))
-			{
-				SoundEffectSource.Stop();
-				SoundEffectSource.clip = diningRoomSoundEffect;
-				SoundEffectSource.Play();
-				Debug.Log(name);
-				mainCamera.transform.position = s_diningRoom;
-			}
-			else if (name.Equals("e_dining_room"))
-			{
-				SoundEffectSource.Stop();
-				SoundEffectSource.clip = diningRoomSoundEffect;
-				SoundEffectSource.Play();
-				Debug.Log(name);
-				mainCamera.transform.position = e_diningRoom;
-			}
 			else if (name.Equals("dining_room"))
 			{
 				SoundEffectSource.Stop();
@@ -86,6 +52,28 @@ public class forCamera : MonoBehaviour
 				SoundEffectSource.Play();
 				Debug.Log(name);
 				mainCamera.transform.position = diningRoom;
+			}
+		}
+	}
+	private void OnTriggerExit(Collider2D coll)
+	{
+		if (coll.gameObject.tag == "Player")
+		{
+			if (name.Equals("kitchen"))
+			{
+				SoundEffectSource.Stop();
+				Debug.Log(name);
+				SoundEffectSource.clip = diningRoomSoundEffect;
+				SoundEffectSource.Play();
+				mainCamera.transform.position = diningRoom;
+			}
+			else if (name.Equals("dining_room"))
+			{
+				SoundEffectSource.Stop();
+				SoundEffectSource.clip = kitchenSoundEffect;
+				SoundEffectSource.Play();
+				Debug.Log(name);
+				mainCamera.transform.position = kitchen;
 			}
 		}
 	}

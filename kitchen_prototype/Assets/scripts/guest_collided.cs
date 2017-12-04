@@ -111,6 +111,7 @@ public class guest_collided : MonoBehaviour
 					interactionAudioSource.clip = talk;
 					interactionAudioSource.Play();
 					originalText.text = text_string_0;
+					scriptyGuest.totalMoneyPossible += money;
 					count += 1;
 				}
 				else if (count == 1)
@@ -131,7 +132,7 @@ public class guest_collided : MonoBehaviour
 					count += 1;
 					money = money - reduceBy;
 				}
-				else if (count == 3)
+				else if (count >= 3)
 				{
 					interactionAudioSource.Stop();
 					interactionAudioSource.clip = talk;
@@ -139,14 +140,6 @@ public class guest_collided : MonoBehaviour
 					originalText.text = text_string_3;
 					count += 1;
 					money = money - reduceBy;
-				}
-				else
-				{
-					interactionAudioSource.Stop();
-					interactionAudioSource.clip = talk;
-					interactionAudioSource.Play();
-					originalText.text = done_string;
-					done = true;
 				}
 			}
 		}
@@ -189,7 +182,7 @@ public class guest_collided : MonoBehaviour
 	}
 
 	//on collision enter, change it so that the color of the player indicates you can interact with them. 
-	//Then, ON STAY, do all the regular shit... test if they're holding, etc etc.
+	//Then, ON STAY, do all the regular sh*t... test if they're holding, etc etc.
 
 	void OnTriggerEnter2D(Collider2D coll)
 	{
@@ -233,6 +226,7 @@ public class guest_collided : MonoBehaviour
 					interactionAudioSource.clip = talk;
 					interactionAudioSource.Play();
 					originalText.text = text_string_0;
+					scriptyGuest.totalMoneyPossible += money;
 					count += 1;
 				}
 				else if (count == 1)
@@ -253,7 +247,7 @@ public class guest_collided : MonoBehaviour
 					count += 1;
 					money = money - reduceBy;
 				}
-				else if (count == 3)
+				else if (count >= 3)
 				{
 					interactionAudioSource.Stop();
 					interactionAudioSource.clip = talk;
@@ -261,14 +255,6 @@ public class guest_collided : MonoBehaviour
 					originalText.text = text_string_3;
 					count += 1;
 					money = money - reduceBy;
-				}
-				else
-				{
-					interactionAudioSource.Stop();
-					interactionAudioSource.clip = talk;
-					interactionAudioSource.Play();
-					originalText.text = done_string;
-					done = true;
 				}
 			}
 			Debug.Log("COLLIDING");

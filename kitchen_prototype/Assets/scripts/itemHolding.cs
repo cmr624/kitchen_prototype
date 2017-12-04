@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,6 +8,9 @@ public class itemHolding : MonoBehaviour
 	public bool isHolding;
 	public string item;
 	public int score;
+	public String grade;
+	public float accuracy;
+	public int totalMoneyPossible;
 
 	public GameObject player;
 	private Animator animator;
@@ -26,6 +30,8 @@ public class itemHolding : MonoBehaviour
 		isHolding = false;
 		item = "Not holding anything";
 		score = 0;
+		grade = "A+";
+		totalMoneyPossible = 0;
 		DisplayFood("OFF");
 	}
 	
@@ -33,10 +39,10 @@ public class itemHolding : MonoBehaviour
 	void Update () 
 	{
 		//DEVTOOL. COMMENT OUT IN FINAL BUILD. OR DON'T.
-		if (Input.GetKeyDown("l"))
-		{
-			score += 100;
-		}
+		//if (Input.GetKeyDown("l"))
+		//{
+		//	score += 100;
+		//}
 		if (isHolding)
 		{
 			DisplayFood(item);
